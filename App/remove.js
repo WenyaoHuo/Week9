@@ -1,7 +1,7 @@
-function deleteProduct(productCollection){
-    productCollection.deleteOne({ id: 2 }, function(err, result) {
-        if (err) throw err;
-        console.log("Deleted product");
+function deleteProduct(productCollection, id, callback){
+    productCollection.deleteOne({ _id: id }, function(err, result) {
+        if (err) return callback(err);
+        callback(null, result);
     });
 }
 

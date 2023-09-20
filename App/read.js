@@ -1,7 +1,7 @@
-function readProducts(productCollection){
-    productCollection.find({}).toArray(function(err, items) {
-        if (err) throw err;
-        console.log(items);
+function readProducts(productCollection, callback){
+    productCollection.find({}).toArray(function(err, result) {
+        if (err) return callback(err);
+        callback(null, result);
     });
 }
 
